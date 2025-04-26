@@ -3,27 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mezanind Carousel 4 per Slide</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <title>MEZANIND</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
   <style>
-    body {
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden; /* no scroll */
       font-family: 'Roboto', sans-serif;
       background: url('webtur/Background Home 1A.jpg') no-repeat center center/cover;
       color: white;
     }
 
     .overlay {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 2rem;
-      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.5rem;
     }
 
     .logo {
       text-align: center;
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     .logo img {
@@ -31,14 +38,24 @@
     }
 
     .title {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: bold;
       margin-top: 1rem;
     }
 
     .subtitle {
       font-size: 1rem;
-      margin: 0.5rem 0 2rem 0;
+      margin: 0.5rem 0 1.5rem 0;
+    }
+
+    .swiper {
+      padding: 1rem 0;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .project-img a {
@@ -59,96 +76,121 @@
       box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
     }
 
-    .website {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .segimeter {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .segimeter span {
-      color: #f7931e;
-    }
-
     .swiper-button-next,
     .swiper-button-prev {
       color: white;
     }
+
+    .website {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .segimeter img {
+      width: 150px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 1.5rem;
+      }
+      .logo img {
+        width: 80px;
+      }
+      .segimeter img {
+        width: 120px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .title {
+        font-size: 1.3rem;
+      }
+      .subtitle {
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="overlay d-flex flex-column justify-content-between">
-    <div class="logo">
-      <img src="webtur/Web Icon-12.png" alt="Logo Mezanind">
-      <div class="title">MEZANIND</div>
-      <div class="subtitle">• 3D VISUAL &nbsp; • 3D VIRTUAL <br> • ANIMASI &nbsp; • BRANDING</div>
-    </div>
 
-    <!-- Swiper Carousel Start -->
-    <div class="container mt-4">
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper text-center">
+<div class="overlay">
+  <!-- Logo -->
+  <div class="logo">
+    <img src="webtur/Web Icon-12.png" alt="Logo Mezanind">
+    <div class="title">MEZANIND</div>
+    <div class="subtitle">• 3D VISUAL &nbsp; • 3D VIRTUAL <br> • ANIMASI &nbsp; • BRANDING</div>
+  </div>
 
-          <!-- Slide 1: 4 Projects -->
-          <div class="swiper-slide">
-            <div class="row g-3">
-              <div class="col-6 col-md-3 project-img">
-                <a href="room1.html"><img src="webtur/Web Icon-14.png" alt="Project 1" /></a>
-              </div>
-              <div class="col-6 col-md-3 project-img">
-                <a href="#"><img src="webtur/Web Icon-15.png" alt="Project 2" /></a>
-              </div>
-              <div class="col-6 col-md-3 project-img">
-                <a href="#"><img src="webtur/Web Icon-16.png" alt="Project 3" /></a>
-              </div>
-              <div class="col-6 col-md-3 project-img">
-                <a href="#"><img src="webtur/Web Icon-17.png" alt="Project 4" /></a>
-              </div>
+  <!-- Swiper Carousel -->
+  <div class="container">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="row g-3 w-100">
+            <div class="col-6 col-md-3 project-img">
+              <a href="room1.html"><img src="webtur/Web Icon-14.png" alt="Project 1" /></a>
+            </div>
+            <div class="col-6 col-md-3 project-img">
+              <a href="under_construction.html"><img src="webtur/Web Icon-15.png" alt="Project 2" /></a>
+            </div>
+            <div class="col-6 col-md-3 project-img">
+              <a href="under_construction.html"><img src="webtur/Web Icon-16.png" alt="Project 3" /></a>
+            </div>
+            <div class="col-6 col-md-3 project-img">
+              <a href="under_construction.html"><img src="webtur/Web Icon-17.png" alt="Project 4" /></a>
             </div>
           </div>
-
-          <!-- Slide 2: 4 Projects (next batch) -->
-          <div class="swiper-slide">
-            <div class="row g-3">
-              <div class="col-6 col-md-3 project-img">
-                <a href="#"><img src="webtur/Web Icon-14.png" alt="Project 5" /></a>
-              </div>
-              <div class="col-6 col-md-3 project-img">
-                <a href="#"><img src="webtur/Web Icon-15.png" alt="Project 6" /></a>
-              </div>
-              <div class="col-6 col-md-3 project-img">
-                <a href="#"><img src="webtur/Web Icon-16.png" alt="Project 7" /></a>
-              </div>
-              <div class="col-6 col-md-3 project-img">
-                <a href="#"><img src="webtur/Web Icon-17.png" alt="Project 8" /></a>
-              </div>
-            </div>
-          </div>
-
         </div>
-      </div>
-    </div>
-    <!-- Swiper Carousel End -->
 
-    <div class="website">
-      <div>OFFICIAL WEBSITE</div>
-      <div class="segimeter"><img src="webtur/Web Icon-13.png" alt="segimeters" /></div>
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="row g-3 w-100">
+            <div class="col-6 col-md-3 project-img">
+              <a href="under_construction.html"><img src="webtur/Web Icon-14.png" alt="Project 5" /></a>
+            </div>
+            <div class="col-6 col-md-3 project-img">
+              <a href="under_construction.html"><img src="webtur/Web Icon-15.png" alt="Project 6" /></a>
+            </div>
+            <div class="col-6 col-md-3 project-img">
+              <a href="under_construction.html"><img src="webtur/Web Icon-16.png" alt="Project 7" /></a>
+            </div>
+            <div class="col-6 col-md-3 project-img">
+              <a href="under_construction.html"><img src="webtur/Web Icon-17.png" alt="Project 8" /></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Arrows -->
+      <!-- <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div> -->
+
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
-    const swiper = new Swiper(".mySwiper", {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      }
-    });
-  </script>
+  <!-- Footer -->
+  <div class="website">
+    <div>OFFICIAL WEBSITE</div>
+    <div class="segimeter"><img src="webtur/Web Icon-13.png" alt="Segimeter"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+
 </body>
 </html>
