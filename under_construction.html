@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title style="font-family: 'Metropolis', sans-serif;">PT. Aplikasi Nusa Bangsa</title>
+  <link rel="icon" type="image/svg+xml" href="img/angsa_logo.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      color: white;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('img/wave_hitam.svg') no-repeat center center/cover, url('img/wave_biru.svg') no-repeat center center/cover;
+      z-index: -1;
+    }
+
+    .overlay {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .logo img {
+      width: min(120px, 30vw);
+      height: auto;
+    }
+
+    .website {
+      text-align: center;
+      margin-bottom: 2vh;
+    }
+
+    .website img {
+      width: min(200px, 50vw);
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    .segimeter {
+      margin-top: 5px;
+      font-size: clamp(14px, 3vw, 18px);
+    }
+
+    @media (max-width: 576px) {
+      .overlay {
+        padding: 1.5rem 1rem;
+      }
+      
+      .website {
+        margin-bottom: 1vh;
+      }
+    }
+
+    @media (min-height: 800px) {
+      .website {
+        margin-bottom: 4vh;
+      }
+    }
+    
+    .dropdown-wrapper {
+      position: absolute;
+      opacity: 0.8;
+      top: 1rem;
+      right: 1rem;
+    }
+
+    .dropdown-toggle {
+      font-weight: 400;
+      font-size: 0.9rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: none;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      border-radius: 5px;
+    }
+
+    .dropdown-toggle:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+      transform: scale(1.05);
+    }
+
+    .dropdown-toggle::before {
+      content: "☰";
+      font-size: 1.2rem;
+      color: white;
+      margin-right: 0.5rem;
+    }
+
+    .dropdown-menu {
+      pointer-events: auto;
+      display: none;
+      position: absolute;
+      top: 110%;
+      right: 0;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      padding: 0.5rem;
+      z-index: 99;
+      border-radius: 8px;
+      transition: opacity 0.3s ease;
+    }
+
+    .dropdown-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: 576px) {
+      .dropdown-toggle {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="overlay">
+  <!-- Dropdown Menu -->
+  <div class="dropdown-wrapper">
+    <button class="dropdown-toggle" onclick="toggleDropdown()"></button>
+    <div class="dropdown-menu" id="dropdownMenu">
+      <a href="under_construction.html">PROFILE</a>
+      <a href="index1.html">VIRTUAL TOUR</a>
+      <a href="under_construction.html">DESIGN</a>
+      <a href="under_construction.html">DOWNLOAD</a>
+    </div>
+  </div>
+
+  <!-- Logo -->
+  <div class="logo">
+    <img src="img/under_construction.svg" style="height: 50px;" alt="Under Construction Logo">
+    <div style="text-align: center; margin-top: 10px; font-size: 1.2rem; font-weight: bold;">UNDER CONSTRUCTION</div>
+    <div style="text-align: center; font-size: 0.7rem;">please sorry for the disturbances</div>
+  </div>
+
+  <!-- Footer -->
+  <div class="website">
+    <img src="img/angsa_font.svg" alt="Angsa">
+    <div class="segimeter" style="font-family: 'Metropolis', sans-serif;">PT. APLIKASI NUSA BANGSA</div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

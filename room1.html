@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thara Residence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .bg {
+      background: url('webtur/Background Home 1.jpg') no-repeat center center/cover;
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .overlay {
+      background: rgba(128, 0, 0, 0.6); /* merah gelap transparan */
+      width: 100%;
+      height: 100%;
+      padding: 2rem;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn-tour {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 900;
+      font-size: 1rem;
+      padding: 0.6rem 1.5rem;
+      background-color: #1e90ff;
+      color: white;
+      border: 2px solid white;
+      border-radius: 25px;
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-tour:hover {
+      background-color: #006fd6;
+      transform: scale(1.05);
+    }
+
+    .desc {
+      max-width: 700px;
+      font-weight: 900;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 576px) {
+      .title {
+        font-size: 2rem;
+      }
+      .btn-tour {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg">
+    <div class="overlay">
+      <div class="title">Thara Residence</div>
+      <a href="home.html" class="btn-tour">TOUR</a>
+      <div class="desc">
+        Perumahan Mega Kencana Thara Residence dikembangkan oleh Developer PT. Vena Mega Kencana yang berlokasi di Kedungwuni, Pekalongan. Perumahan Mega Kencana - Thara Residence hadir di lokasi strategis dekat dengan berbagai fasilitas umum. Selain sebagai tempat hunian yang aman, memiliki rumah di Perumahan Mega Kencana - Thara Residence juga sebagai sarana investasi masa depan yang menjanjikan. Nilai investasi rumah yang akan terus naik seiring dengan penataan, perkembangan dan pembangunan di area Bebekan, Kedungwuni Barat.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

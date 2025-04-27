@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title style="font-family: 'Metropolis', sans-serif;">PT. Aplikasi Nusa Bangsa</title>
+  <link rel="icon" type="image/svg+xml" href="img/angsa_logo.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Roboto', sans-serif;
+      background: #707070;
+      color: white;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .logo {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .logo img {
+      width: 100px;
+    }
+
+    .swiper {
+      padding: 1rem 0;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .project-img a {
+      display: block;
+      overflow: hidden;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-img img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .project-img a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .website {
+      text-align: center;
+      margin-bottom: 2vh;
+    }
+
+    .website img {
+      width: min(200px, 50vw);
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .logo img {
+        width: 80px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .website {
+        margin-bottom: 1vh;
+      }
+    }
+
+    .dropdown-wrapper {
+      position: absolute;
+      opacity: 0.8;
+      top: 1rem;
+      right: 1rem;
+      z-index: 10; /* Ensure dropdown is above other elements */
+    }
+
+    .dropdown-toggle {
+      font-weight: 400;
+      font-size: 0.9rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: none;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      border-radius: 5px;
+    }
+
+    .dropdown-toggle:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+      transform: scale(1.05);
+    }
+
+    .dropdown-toggle::before {
+      content: "☰";
+      font-size: 1.2rem;
+      color: white;
+      margin-right: 0.5rem;
+    }
+
+    .dropdown-menu {
+      pointer-events: auto;
+      display: none;
+      position: absolute;
+      top: 110%;
+      right: 0;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      padding: 0.5rem;
+      z-index: 11; /* Ensure dropdown menu is above other elements */
+      border-radius: 8px;
+      transition: opacity 0.3s ease;
+    }
+
+    .dropdown-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .project-img div {
+      text-decoration: none; /* Remove underline from SITEPLAN text */
+    }
+  </style>
+</head>
+<body>
+
+    <div class="overlay">
+    <div class="dropdown-wrapper">
+        <button class="dropdown-toggle" onclick="toggleDropdown()"></button>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <a href="under_construction.html">PROFILE</a>
+          <a href="index1.html">VIRTUAL TOUR</a>
+          <a href="under_construction.html">DESIGN</a>
+          <a href="under_construction.html">DOWNLOAD</a>
+        </div>
+      </div>
+
+  <!-- Swiper Carousel -->
+  <div class="container">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="row g-3 w-100">
+            <div class="col-6 col-md-3 project-img">
+              <a href="home.html" style="text-decoration: none; color: azure;">
+                <img src="webtur/Web Icon-14.png" alt="Siteplan" />
+                <div style="text-align: center; margin-top: 1px;">SITEPLAN</div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 project-img">
+              <a href="pertamedika.html" style="text-decoration: none; color: azure;">
+                <img src="webtur/pertamedika/Web Icon-15.png" alt="Interior" />
+                <div style="text-align: center; margin-top: 1px;">INTERIOR</div>
+            </a>
+            </div>
+            <div class="col-6 col-md-3 project-img">
+              <a href="under_construction.html" style="text-decoration: none; color: azure;"><img src="webtur/Web Icon-17.png" alt="Project 3" /><div style="text-align: center; margin-top: 1px;">LANDSCAPE</div></a>
+            </div>
+            <div class="col-6 col-md-3 project-img">
+              <a href="under_construction.html" style="text-decoration: none; color: azure;"><img src="img/u_cons.jpg" style="padding: 14px; border-radius: 35px;" alt="Project 4" /><div style="text-align: center; margin-top: 1px;">FACTORY</div></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <!-- <div class="swiper-slide">
+          <div class="row g-3 w-100">
+            <div class="col-6 col-md-3 project-img">
+              <a href="under_construction.html"><img src="webtur/Web Icon-14.png" alt="Project 5" /></a>
+            </div>
+            <div class="col-6 col-md-3 project-img">
+              <a href="under_construction.html"><img src="webtur/Web Icon-15.png" alt="Project 6" /></a>
+            </div>
+            <div class="col-6 col-md-3 project-img">
+              <a href="under_construction.html"><img src="webtur/Web Icon-16.png" alt="Project 7" /></a>
+            </div>
+            <div class="col-6 col-md-3 project-img">
+              <a href="under_construction.html"><img src="webtur/Web Icon-17.png" alt="Project 8" /></a>
+            </div>
+          </div>
+        </div> -->
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="website">
+    <img src="img/angsa_font.svg" alt="Angsa">
+    <div class="segimeter" style="font-family: 'Metropolis', sans-serif;">PT. APLIKASI NUSA BANGSA</div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+  });
+
+  function toggleDropdown() {
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    if (dropdownMenu.style.display === 'none' || dropdownMenu.style.display === '') {
+      dropdownMenu.style.display = 'block';
+    } else {
+      dropdownMenu.style.display = 'none';
+    }
+  }
+</script>
+<script src="script.js"></script>
+
+</body>
+</html>

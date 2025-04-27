@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title style="font-family: 'Metropolis', sans-serif;">PT. Aplikasi Nusa Bangsa</title>
+  <link rel="icon" type="image/svg+xml" href="img/angsa_logo.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .background-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .background-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .overlay-content {
+      pointer-events: none;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1rem;
+      color: white;
+    }
+
+    /* HEADER */
+    .header {
+      pointer-events: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header img {
+      height: 40px;
+    }
+
+    .dropdown-wrapper {
+      position: relative;
+    }
+
+    .dropdown-toggle {
+      font-weight: 400;
+      font-size: 0.9rem;
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .dropdown-toggle::before {
+      content: "360°";
+      background: white;
+      color: #1e90ff;
+      font-weight: bold;
+      border-radius: 15px;
+      padding: 2px 6px;
+      font-size: 0.75rem;
+    }
+
+    .dropdown-menu {
+      pointer-events: auto;
+      font-size: 8px;
+      display: none;
+      position: absolute;
+      top: 110%;
+      right: 0;
+      flex-direction: column;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      padding: 0.5rem;
+      z-index: 99;
+    }
+
+    .dropdown-menu a {
+      font-size: 8px;
+      color: #1e90ff;
+      text-decoration: none;
+      padding: 8px 12px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      border-radius: 8px;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #e6f0ff;
+    }
+
+    /* 360 LOGO */
+    .logo-360 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 5rem;
+      font-weight: bold;
+      color: white;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    /* BOTTOM NAV */
+    .bottom-nav {
+      pointer-events: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 0.8rem 1rem;
+      border-radius: 15px;
+      display: flex;
+      justify-content: space-around;
+      font-weight: 300;
+      font-size: 0.85rem;
+    }
+
+    .bottom-nav .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+    }
+
+    .bottom-nav .nav-item i,
+    .bottom-nav .nav-item svg {
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+
+    .bottom-nav .nav-item svg.tiktok-icon {
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+
+    @media (max-width: 576px) {
+      .header img {
+        height: 32px;
+      }
+
+      .dropdown-toggle {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.8rem;
+      }
+
+      .logo-360 {
+        font-size: 3rem;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- VIRTUAL TOUR BACKGROUND -->
+  <div class="background-container">
+    <iframe src="webtur/pertamedika/index.htm"></iframe>
+  </div>
+
+  <!-- OVERLAY UI -->
+  <div class="overlay-content">
+
+    <!-- Header -->
+    <div class="header">
+        <div style="display: flex; align-items: center;">
+            <img src="webtur/Web Icon-07.png" style="height: 40px; width: auto; margin-right: 8px; color: #1e90ff;">
+            <span style="color: #1e90ff; font-family: 'Metropolis', sans-serif;">&nbsp; VIRTUAL <b>TOUR</b></span>
+          </div>          
+      <!-- <div class="dropdown-wrapper">
+        <button class="dropdown-toggle" onclick="toggleDropdown()">TOUR ▼</button>
+        <div class="dropdown-menu" id="dropdownMenu" style="font-size: 8px;">
+          <a href="siteplan.html">TOUR SITEPLAN</a>
+          <a href="tour32.html">TOUR TYPE 32</a>
+          <a href="tour43.html">TOUR TYPE 43</a>
+        </div>
+      </div> -->
+    </div>
+
+    <!-- 360 Logo -->
+    <!-- <div class="logo-360">360°</div> -->
+
+    <!-- Bottom Navbar -->
+    <div class="bottom-nav">
+      <a href="index.html" class="nav-item">
+        <i class="ri-home-4-line"></i>
+        Home
+      </a>
+      <a href="https://wa.me/6281290506434" class="nav-item">
+        <i class="ri-whatsapp-line"></i>
+        Kontak
+      </a>
+      <a href="https://vm.tiktok.com/ZSrT7UmyT/" class="nav-item">
+        <svg class="tiktok-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+          <path d="M41 14.27c-3.23 0-6.07-1.8-7.5-4.44v16.82c0 6.3-5.1 11.42-11.4 11.42-1.97 0-3.8-.5-5.38-1.37 1.38 1.36 3.28 2.2 5.38 2.2 4.1 0 7.44-3.34 7.44-7.45V7.7h4.8c.7 3.3 3.68 5.77 7.26 5.9z"/>
+          <path d="M22.1 37.64c-4.1 0-7.44-3.33-7.44-7.45s3.34-7.45 7.44-7.45c.96 0 1.88.19 2.72.53v-5.4c-.9-.15-1.8-.23-2.72-.23-6.3 0-11.4 5.1-11.4 11.4s5.1 11.4 11.4 11.4c2.1 0 4-.84 5.38-2.2-1.58.87-3.4 1.37-5.38 1.37z"/>
+        </svg>
+        TikTok
+      </a>
+      <a href="#" class="nav-item" id="openSimulasiModal">
+        <i class="ri-calculator-line"></i>
+        Kalkulator
+      </a>
+    </div>
+    <div id="simulasiModal" class="modal-simulasi">
+      <div class="modal-kpr">
+        <div class="modal-header">
+          <h3>KALKULATOR KPR</h3>
+          <span class="close-simulasi" id="closeSimulasi">&times;</span>
+        </div>
+    
+        <div class="modal-body">
+          <label style="color: black;">Jumlah Pinjaman</label>
+          <input type="range" id="jumlah" min="100000000" max="1000000000" step="10000000" value="500000000">
+          
+          <label style="color: black;">Jangka Waktu Pinjaman</label>
+          <input type="range" id="jangka" min="1" max="30" value="10">
+    
+          <label style="color: black;">Suku Bunga Tahunan (%)</label>
+          <input type="range" id="bunga" min="1" max="15" value="8">
+    
+          <div class="estimasi">
+            <div>
+              <strong style="color: black;">Estimasi Total Pinjaman</strong>
+              <p id="totalPinjaman" style="color: black;">Rp 0</p>
+            </div>
+            <div>
+              <strong style="color: black;">Bunga Dibayarkan</strong>
+              <p id="bungaDibayar" style="color: black;">Rp 0</p>
+            </div>
+          </div>
+        </div>
+    
+        <div class="modal-footer">
+          <div class="info" style="color: black;">
+            Dapatkan persetujuan untuk KPR.<br>Prosesnya cepat dan mudah.
+          </div>
+          <a href="https://wa.me/6281290506434" 
+               class="nav-item" 
+               style="
+                 display: inline-flex;
+                 align-items: center;
+                 justify-content: center;
+                 color: white;
+                 text-decoration: none;
+                 font-weight: bold;
+                 font-size: 1rem;
+                 background-color: #25D366;
+                 padding: 0.8rem 1.8rem;
+                 border-radius: 30px;
+                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                 transition: background-color 0.3s ease, transform 0.2s ease;
+               ">
+              <i class="ri-whatsapp-line" style="font-size: 1.3rem; margin-right: 8px;"></i>
+              Hubungi Kami
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
