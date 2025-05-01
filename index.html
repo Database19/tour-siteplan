@@ -10,10 +10,13 @@
   <link rel="apple-touch-icon" href="img/angsa_logo_png.png">
 
   <!-- Open Graph untuk sosial media -->
-  <meta property="og:image" content="img/angsa_logo_png.png">
+  <meta property="og:image" content="https://database19.github.io/tour-siteplan/img/logo_angsa_png.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://database19.github.io/tour-siteplan/">
+  <meta property="og:type" content="website">
+
   <title style="font-family: 'Metropolis', sans-serif;">PT. Aplikasi Nusa Bangsa</title>
   <link rel="icon" type="image/svg+xml" href="img/angsa_logo.svg">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -34,35 +37,45 @@
       background: white;
     }
 
-    .ocean {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
+    .ocean { 
+      height: 30%;
+      width:100%;
+      position:absolute;
+      bottom:0;
+      left:0;
+      background-color: #43aece;
     }
 
     .wave {
-      background: url('img/bg2.svg') repeat-x;
-      background-size: cover;
+      background: url(img/bg/bg_hitam.svg) repeat-x;
+      background-size: auto;
       position: absolute;
-      bottom: 0;
+      top: -130px;
       width: 6400px;
       height: 100%;
+      animation: wave 5s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
       transform: translate3d(0, 0, 0);
     }
 
-
-    .wave:nth-of-type(2) {
-      background: url('img/bg.svg') repeat-x;
-      background-size: cover;
+    .wave2 {
+      background: url(img/bg/bg.svg) repeat-x;
       position: absolute;
-      bottom: 0;
+      top: -130px;
       width: 6400px;
       height: 100%;
-      opacity: 0.6;
+      animation: wave2 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
       transform: translate3d(0, 0, 0);
+    }
+
+    .wave:nth-of-type(2) {
+      top: -175px;
+      animation: wave 5s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite;
+      opacity: 1;
+    }
+
+    .wave2:nth-of-type(2) {
+      animation: wave2 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite;
+      opacity: 0.7;
     }
 
     @keyframes wave {
@@ -79,7 +92,7 @@
         margin-left: 0;
       }
       100% {
-        margin-left: -800px;
+        margin-left: -1600px;
       }
     }
 
@@ -107,24 +120,21 @@
     .logo {
       display: flex;
       justify-content: center;
-      align-items: center;
-      margin: auto;
+      align-items: flex-start;
     }
 
     .logo img {
       width: min(120px, 30vw);
-      height: auto;
+      margin-top: -2vh;
     }
 
     .website {
       text-align: center;
-      margin-bottom: 2vh;
     }
 
     .website img {
       width: min(200px, 50vw);
       height: auto;
-      margin-bottom: 1rem;
     }
 
     .segimeter {
@@ -254,25 +264,25 @@
 
   <!-- Logo -->
   <div class="logo">
-    <img src="img/angsa_logo.svg" alt="Logo Angsa">
+    <img style="height: 100px;" src="img/angsa_logo.svg" alt="Logo Angsa">
   </div>
 
   <!-- Footer -->
   <div class="website">
-    <img src="img/angsa_font.svg" alt="Angsa">
+    <img style="width: 150px; height: 30px;" src="img/angsa_font.svg" alt="Angsa">
     <div class="segimeter" style="font-family: 'Metropolis', sans-serif;">PT. APLIKASI NUSA BANGSA</div>
   </div>
 </div>
 
 <div class="ocean">
   <div class="wave"></div>
-  <div class="wave"></div>
+  <div class="wave2"></div>
 </div>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
-<script>
+<!-- <script>
   const wave1 = document.querySelector('.wave:nth-of-type(1)');
   const wave2 = document.querySelector('.wave:nth-of-type(2)');
 
@@ -293,6 +303,6 @@
   }
 
   animateWave();
-</script>
+</script> -->
 </body>
 </html>
