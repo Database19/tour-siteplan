@@ -57,13 +57,11 @@
     .project-img a {
       display: block;
       overflow: hidden;
-      border-radius: 12px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .project-img img {
       width: 100%;
-      border-radius: 12px;
       transition: transform 0.3s ease;
     }
 
@@ -169,6 +167,12 @@
     .project-img div {
       text-decoration: none; /* Remove underline from SITEPLAN text */
     }
+
+    a:hover, a:focus, img:hover, img:focus {
+      outline: none !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
   </style>
 </head>
 <body>
@@ -190,17 +194,17 @@
       <div class="swiper-wrapper">
         <!-- Slide 1 -->
         <div class="swiper-slide">
-          <div class="row g-3 w-100">
+            <div class="row g-3 w-100">
             <div class="col-6 col-md-3 project-img">
               <a href="home.html" style="text-decoration: none; color: azure;">
-                <img src="webtur/Web Icon-14.png" alt="Siteplan" />
-                <div style="text-align: center; margin-top: 1px;">SITEPLAN</div>
+              <img src="webtur/Web Icon-14.png" alt="Siteplan" />
+              <div style="text-align: center; margin-top: 1px;">SITEPLAN</div>
               </a>
             </div>
             <div class="col-6 col-md-3 project-img">
               <a href="pertamedika.html" style="text-decoration: none; color: azure;">
-                <img src="webtur/pertamedika/Web Icon-15.png" alt="Interior" />
-                <div style="text-align: center; margin-top: 1px;">INTERIOR</div>
+              <img src="webtur/pertamedika/Web Icon-15.png" alt="Interior" />
+              <div style="text-align: center; margin-top: 1px;">INTERIOR</div>
             </a>
             </div>
             <div class="col-6 col-md-3 project-img">
@@ -209,7 +213,7 @@
             <div class="col-6 col-md-3 project-img">
               <a href="under_construction.html" style="text-decoration: none; color: azure;"><img src="img/u_cons.jpg" style="padding: 14px; border-radius: 35px;" alt="Project 4" /><div style="text-align: center; margin-top: 1px;">FACTORY</div></a>
             </div>
-          </div>
+            </div>
         </div>
 
         <!-- Slide 2 -->

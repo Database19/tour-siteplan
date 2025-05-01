@@ -3,6 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Favicon standard -->
+  <link rel="icon" type="image/png" href="img/angsa_logo_png.png" sizes="32x32">
+
+  <!-- Apple Touch Icon (untuk iOS) -->
+  <link rel="apple-touch-icon" href="img/angsa_logo_png.png">
+
+  <!-- Open Graph untuk sosial media -->
+  <meta property="og:image" content="img/angsa_logo_png.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <title style="font-family: 'Metropolis', sans-serif;">PT. Aplikasi Nusa Bangsa</title>
   <link rel="icon" type="image/svg+xml" href="img/angsa_logo.svg">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,17 +26,70 @@
       font-family: 'Roboto', sans-serif;
       color: white;
       position: relative;
+      overflow: hidden;
     }
 
-    body::before {
-      content: '';
+    html, body { height: 100%; }
+    body {
+      background: white;
+    }
+
+    .ocean {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('img/wave_hitam.svg') no-repeat center center/cover, url('img/wave_biru.svg') no-repeat center center/cover;
-      z-index: -1;
+      overflow: hidden;
+    }
+
+    .wave {
+      background: url('img/bg2.svg') repeat-x;
+      background-size: cover;
+      position: absolute;
+      bottom: 0;
+      width: 6400px;
+      height: 100%;
+      transform: translate3d(0, 0, 0);
+    }
+
+
+    .wave:nth-of-type(2) {
+      background: url('img/bg.svg') repeat-x;
+      background-size: cover;
+      position: absolute;
+      bottom: 0;
+      width: 6400px;
+      height: 100%;
+      opacity: 0.6;
+      transform: translate3d(0, 0, 0);
+    }
+
+    @keyframes wave {
+      0% {
+        margin-left: 0;
+      }
+      100% {
+        margin-left: -1600px;
+      }
+    }
+
+    @keyframes wave2 {
+      0% {
+        margin-left: 0;
+      }
+      100% {
+        margin-left: -800px;
+      }
+    }
+
+    @keyframes swell {
+      0%, 100% {
+        transform: translate3d(0,-25px,0);
+      }
+      50% {
+        transform: translate3d(0,5px,0);
+      }
     }
 
     .overlay {
@@ -160,6 +224,18 @@
         font-size: 0.8rem;
         padding: 0.3rem 0.8rem;
       }
+
+      .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+      }
+
+      .logo img {
+        width: min(120px, 30vw);
+        height: auto;
+      }
     }
   </style>
 </head>
@@ -188,8 +264,35 @@
   </div>
 </div>
 
+<div class="ocean">
+  <div class="wave"></div>
+  <div class="wave"></div>
+</div>
+
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
+<script>
+  const wave1 = document.querySelector('.wave:nth-of-type(1)');
+  const wave2 = document.querySelector('.wave:nth-of-type(2)');
+
+  let offset1 = 0;
+  let offset2 = 0;
+
+  function animateWave() {
+    offset1 -= 4;
+    offset2 -= 7;
+
+    wave1.style.transform = `translateX(${offset1}px)`;
+    wave2.style.transform = `translateX(${offset2}px)`;
+
+    if (Math.abs(offset1) >= 2800) offset1 = 0;
+    if (Math.abs(offset2) >= 3200) offset2 = 0;
+
+    requestAnimationFrame(animateWave);
+  }
+
+  animateWave();
+</script>
 </body>
 </html>

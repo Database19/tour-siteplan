@@ -1,46 +1,71 @@
+function formatRupiahInput(value) {
+  let numberString = value.replace(/[^,\d]/g, '').toString();
+  let split = numberString.split(',');
+  let sisa = split[0].length % 3;
+  let rupiah = split[0].substr(0, sisa);
+  let ribuan = split[0].substr(sisa).match(/\d{3}/g);
 
-const openModal = document.getElementById("openSimulasiModal");
-const closeModal = document.getElementById("closeSimulasi");
-const modal = document.getElementById("simulasiModal");
+  if (ribuan) {
+    let separator = sisa ? '.' : '';
+    rupiah += separator + ribuan.join('.');
+  }
 
-openModal.onclick = () => modal.style.display = "flex";
-closeModal.onclick = () => modal.style.display = "none";
-window.onclick = (e) => {
-  if (e.target == modal) modal.style.display = "none";
-};
+  rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+  return rupiah;
+}
 
-// Kalkulasi
-const jumlah = document.getElementById("jumlah");
-const jangka = document.getElementById("jangka");
-const bunga = document.getElementById("bunga");
+function formatInputRupiah(input) {
+  let cursorPos = input.selectionStart;
+  input.value = formatRupiahInput(input.value);
+  input.setSelectionRange(cursorPos, cursorPos);
+}
 
-const totalEl = document.getElementById("totalPinjaman");
-const bungaEl = document.getElementById("bungaDibayar");
+// Fungsi untuk ambil nilai bersih (tanpa titik) untuk perhitungan
+function getCleanValue(id) {
+  return parseInt(document.getElementById(id).value.replace(/\./g, '')) || 0;
+}
 
 function formatRupiah(angka) {
-  return new Intl.NumberFormat('id-ID', {
-    style: 'currency',
-    currency: 'IDR'
-  }).format(angka);
-}
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      minimumFractionDigits: 0
+    }).format(angka);
+  }
 
-function updateSimulasi() {
-  const pinjaman = parseInt(jumlah.value);
-  const tahun = parseInt(jangka.value);
-  const persen = parseFloat(bunga.value);
+  function hitungCicilan() {
+    const pinjaman = getCleanValue('jumlah');
+    const tahun = parseInt(document.getElementById('jangka').value);
+    const bungaTahunan = parseFloat(document.getElementById('bunga').value);
 
-  const bungaBayar = pinjaman * (persen / 100) * tahun;
-  const totalBayar = pinjaman + bungaBayar;
+    const bulan = tahun * 12;
+    const bungaBulanan = bungaTahunan / 12 / 100;
 
-  totalEl.innerText = formatRupiah(totalBayar);
-  bungaEl.innerText = formatRupiah(bungaBayar);
-}
+    const cicilan = pinjaman * bungaBulanan / (1 - Math.pow(1 + bungaBulanan, -bulan));
+    const totalBunga = (cicilan * bulan) - pinjaman;
+    const totalBayar = pinjaman + totalBunga;
 
-[jumlah, jangka, bunga].forEach(input => {
-  input.addEventListener("input", updateSimulasi);
+    document.getElementById('cicilanPerBulan').textContent = formatRupiah(cicilan);
+    document.getElementById('bungaDibayar').textContent = formatRupiah(totalBunga);
+    document.getElementById('totalPinjaman').textContent = formatRupiah(totalBayar);
+  }
+
+  document.getElementById("btnHitung").addEventListener("click", hitungCicilan);
+  document.getElementById("closeSimulasi").addEventListener("click", () => {
+  document.getElementById("simulasiModal").style.display = "none";
+  });
+
+  function openSimulasiModal() {
+    document.getElementById("simulasiModal").style.display = "flex";
+  }
+
+      // Tutup modal saat klik background
+document.getElementById("simulasiModal").addEventListener("click", function(event) {
+  // Jika yang diklik adalah elemen luar (bukan isi modal)
+  if (event.target === this) {
+    this.style.display = "none";
+  }
 });
-
-updateSimulasi(); // Initial
 
   function toggleDropdown() {
     const dropdown = document.getElementById("dropdownMenu");

@@ -63,6 +63,7 @@
     }
 
     .dropdown-toggle {
+      opacity: 0.9;
       font-weight: 400;
       font-size: 0.9rem;
       background-color: #1e90ff;
@@ -78,6 +79,7 @@
 
     .dropdown-toggle::before {
       content: "360°";
+      opacity: 0.9;
       background: white;
       color: #1e90ff;
       font-weight: bold;
@@ -87,6 +89,7 @@
     }
 
     .dropdown-menu {
+      opacity: 0.9;
       pointer-events: auto;
       font-size: 8px;
       display: none;
@@ -102,6 +105,7 @@
     }
 
     .dropdown-menu a {
+      opacity: 0.9;
       font-size: 8px;
       color: #1e90ff;
       text-decoration: none;
@@ -196,9 +200,9 @@
       <div class="dropdown-wrapper">
         <button class="dropdown-toggle" onclick="toggleDropdown()">TOUR ▼</button>
         <div class="dropdown-menu" id="dropdownMenu" style="font-size: 8px;">
-          <a href="siteplan.html">TOUR SITEPLAN</a>
-          <a href="tour32.html">TOUR TYPE 32</a>
-          <a href="tour43.html">TOUR TYPE 43</a>
+          <a href="siteplan.html">SITEPLAN</a>
+          <a href="tour32.html">TYPE 32</a>
+          <a href="tour43.html">TYPE 43</a>
         </div>
       </div>
     </div>
@@ -223,64 +227,41 @@
         </svg>
         TikTok
       </a>
-      <a href="#" class="nav-item" id="openSimulasiModal">
+      <a href="#" class="nav-item" id="openSimulasiModal" onclick="openSimulasiModal()">
         <i class="ri-calculator-line"></i>
-        Kalkulator
+        Simulasi
       </a>
     </div>
     <div id="simulasiModal" class="modal-simulasi">
       <div class="modal-kpr">
         <div class="modal-header">
-          <h3>KALKULATOR KPR</h3>
+          <h4>KALKULATOR KPR</h4>
           <span class="close-simulasi" id="closeSimulasi">&times;</span>
         </div>
     
         <div class="modal-body">
-          <label style="color: black;">Jumlah Pinjaman</label>
-          <input type="range" id="jumlah" min="100000000" max="1000000000" step="10000000" value="500000000">
-          
-          <label style="color: black;">Jangka Waktu Pinjaman</label>
-          <input type="range" id="jangka" min="1" max="30" value="10">
+          <label>Jumlah Pinjaman (Rp)</label>
+          <input type="text" id="jumlah" value="500.000.000" oninput="formatInputRupiah(this)">
+
     
-          <label style="color: black;">Suku Bunga Tahunan (%)</label>
-          <input type="range" id="bunga" min="1" max="15" value="8">
+          <label>Jangka Waktu (Tahun)</label>
+          <input type="number" id="jangka" value="10" min="1" max="30">
+    
+          <label>Suku Bunga Tahunan (%)</label>
+          <input type="number" id="bunga" value="8" min="1" max="15" step="0.1">
+    
+          <button id="btnHitung">Hitung Cicilan</button>
     
           <div class="estimasi">
-            <div>
-              <strong style="color: black;">Estimasi Total Pinjaman</strong>
-              <p id="totalPinjaman" style="color: black;">Rp 0</p>
-            </div>
-            <div>
-              <strong style="color: black;">Bunga Dibayarkan</strong>
-              <p id="bungaDibayar" style="color: black;">Rp 0</p>
-            </div>
+            <p><strong>Estimasi Cicilan / Bulan:</strong> <span id="cicilanPerBulan">Rp 0</span></p>
+            <p><strong>Total Bunga Dibayar:</strong> <span id="bungaDibayar">Rp 0</span></p>
+            <p><strong>Total Pinjaman + Bunga:</strong> <span id="totalPinjaman">Rp 0</span></p>
           </div>
         </div>
     
-        <div class="modal-footer">
-          <div class="info" style="color: black;">
-            Dapatkan persetujuan untuk KPR.<br>Prosesnya cepat dan mudah.
-          </div>
-          <a href="https://wa.me/6281290506434" 
-               class="nav-item" 
-               style="
-                 display: inline-flex;
-                 align-items: center;
-                 justify-content: center;
-                 color: white;
-                 text-decoration: none;
-                 font-weight: bold;
-                 font-size: 1rem;
-                 background-color: #25D366;
-                 padding: 0.8rem 1.8rem;
-                 border-radius: 30px;
-                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-                 transition: background-color 0.3s ease, transform 0.2s ease;
-               ">
-              <i class="ri-whatsapp-line" style="font-size: 1.3rem; margin-right: 8px;"></i>
-              Hubungi Kami
-            </a>
-          <!-- <button class="btn-ajukan">Ajukan Sekarang</button> -->
+        <div class="modal-footer" style="text-align: center;">
+          <p style="margin: 0;">Dapatkan persetujuan untuk KPR.<br>Proses cepat dan mudah.</p>
+          <a href="https://wa.me/6281290506434" class="wa-button">Hubungi Kami</a>
         </div>
       </div>
     </div>

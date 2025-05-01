@@ -15,17 +15,70 @@
       font-family: 'Roboto', sans-serif;
       color: white;
       position: relative;
+      overflow: hidden;
     }
 
-    body::before {
-      content: '';
+    html, body { height: 100%; }
+    body {
+      background: white;
+    }
+
+    .ocean {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('img/wave_hitam.svg') no-repeat center center/cover, url('img/wave_biru.svg') no-repeat center center/cover;
-      z-index: -1;
+      overflow: hidden;
+    }
+
+    .wave {
+      background: url('img/bg2.svg') repeat-x;
+      background-size: cover;
+      position: absolute;
+      bottom: 0;
+      width: 6400px;
+      height: 100%;
+      transform: translate3d(0, 0, 0);
+    }
+
+
+    .wave:nth-of-type(2) {
+      background: url('img/bg.svg') repeat-x;
+      background-size: cover;
+      position: absolute;
+      bottom: 0;
+      width: 6400px;
+      height: 100%;
+      opacity: 0.6;
+      transform: translate3d(0, 0, 0);
+    }
+
+    @keyframes wave {
+      0% {
+        margin-left: 0;
+      }
+      100% {
+        margin-left: -1600px;
+      }
+    }
+
+    @keyframes wave2 {
+      0% {
+        margin-left: 0;
+      }
+      100% {
+        margin-left: -800px;
+      }
+    }
+
+    @keyframes swell {
+      0%, 100% {
+        transform: translate3d(0,-25px,0);
+      }
+      50% {
+        transform: translate3d(0,5px,0);
+      }
     }
 
     .overlay {
@@ -172,8 +225,8 @@
   <!-- Logo -->
   <div class="logo">
     <img src="img/under_construction.svg" style="height: 50px;" alt="Under Construction Logo">
-    <div style="text-align: center; margin-top: 10px; font-size: 1.2rem; font-weight: bold;">UNDER CONSTRUCTION</div>
-    <div style="text-align: center; font-size: 0.7rem;">please sorry for the disturbances</div>
+    <div style="color: #3F7181; margin-top: 10px; font-size: 1.2rem; font-weight: bold;">UNDER CONSTRUCTION</div>
+    <div style="color: #3F7181; text-align: center; font-size: 0.7rem;">please sorry for the disturbances</div>
   </div>
 
   <!-- Footer -->
@@ -183,8 +236,35 @@
   </div>
 </div>
 
+<div class="ocean">
+  <div class="wave"></div>
+  <div class="wave"></div>
+</div>
+
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
+<script>
+  const wave1 = document.querySelector('.wave:nth-of-type(1)');
+  const wave2 = document.querySelector('.wave:nth-of-type(2)');
+
+  let offset1 = 0;
+  let offset2 = 0;
+
+  function animateWave() {
+    offset1 -= 4;
+    offset2 -= 7;
+
+    wave1.style.transform = `translateX(${offset1}px)`;
+    wave2.style.transform = `translateX(${offset2}px)`;
+
+    if (Math.abs(offset1) >= 2800) offset1 = 0;
+    if (Math.abs(offset2) >= 3200) offset2 = 0;
+
+    requestAnimationFrame(animateWave);
+  }
+
+  animateWave();
+</script>
 </body>
 </html>
